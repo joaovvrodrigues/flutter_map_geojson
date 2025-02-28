@@ -209,8 +209,8 @@ class _MyHomePageState extends State<MyHomePage> {
   GeoJsonParser geoJsonParser = GeoJsonParser(
     defaultMarkerColor: Colors.red,
     defaultPolygonBorderColor: Colors.red,
-    defaultPolygonFillColor: Colors.red.withOpacity(0.1),
-    defaultCircleMarkerColor: Colors.red.withOpacity(0.25),
+    defaultPolygonFillColor: Colors.red.withValues(alpha: 0.1),
+    defaultCircleMarkerColor: Colors.red.withValues(alpha: 0.25),
   );
 
   bool loadingData = false;
@@ -270,10 +270,7 @@ class _MyHomePageState extends State<MyHomePage> {
             initialZoom: 14,
           ),
           children: [
-            TileLayer(
-                urlTemplate:
-                    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                subdomains: const ['a', 'b', 'c']),
+            TileLayer(urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", subdomains: const ['a', 'b', 'c']),
             //userAgentPackageName: 'dev.fleaflet.flutter_map.example',
             loadingData
                 ? const Center(child: CircularProgressIndicator())
